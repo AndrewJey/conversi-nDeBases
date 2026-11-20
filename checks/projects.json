@@ -1,0 +1,9 @@
+[
+  {
+    "project": "build.xml",
+    "source": "checks/BaseCheck.java",
+    "main": "BaseCheck",
+    "headless": true,
+    "classpath": []
+  }
+]

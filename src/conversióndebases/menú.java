@@ -25,25 +25,16 @@ public class menú {
     /**
      *Menú:
      **/ 
-    public void menu() {   
-        //Opciones del Menú:
-        this.opt = Integer.parseInt(JOptionPane.showInputDialog(null, "1. Decimal a Binario\n2. Binario a Decimal", "Menú", JOptionPane.WARNING_MESSAGE));
-        //Instancia de la Clase "Convertidores":
-        convertidores c = new convertidores();        
-        //Menú:
-        switch (opt) {
-            case 1:
-                //Decimal a Binario:                
-                c.decBin();
-                break;
-            case 2:
-                //Binario a Decimal:
-                c.binDec();
-                break;
-            default:
-                JOptionPane.showMessageDialog(null, "No es una Opción", "ERROR", JOptionPane.ERROR_MESSAGE);
-                break;
-        }//Fin del Switch
+    public void menu() {
+        Object[] opciones = {"Decimal a binario", "Binario a decimal", "Salir"};
+        while (true) {
+            int seleccion = JOptionPane.showOptionDialog(null, "Elige una conversión", "Conversión de bases", JOptionPane.DEFAULT_OPTION,
+                JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
+            if (seleccion < 0 || seleccion == 2) return;
+            this.opt = seleccion + 1;
+            convertidores conversor = new convertidores();
+            if (seleccion == 0) conversor.decBin(); else conversor.binDec();
+        }
     }//Fin del método
     /**
      * Obtenedor de Opt
